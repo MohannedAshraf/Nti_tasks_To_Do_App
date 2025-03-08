@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:to_do_app/homepage.dart';
-import 'package:to_do_app/mycolors.dart';
-import 'package:to_do_app/myicons.dart';
-import 'package:to_do_app/mytextbutton.dart';
-import 'package:to_do_app/mytextformfield.dart';
+import 'package:to_do_app/Core/resources_manager/app_colors.dart';
+import 'package:to_do_app/Core/resources_manager/app_icons.dart';
+import 'package:to_do_app/Core/resources_manager/mytextbutton.dart';
+import 'package:to_do_app/Core/resources_manager/mytextformfield.dart';
+
+import 'package:to_do_app/Features/presentation/Home/view/homepage.dart';
 
 class AddTaskPage extends StatelessWidget {
   const AddTaskPage({super.key});
@@ -12,8 +13,10 @@ class AddTaskPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: MyColors.backgroundColor,
       appBar: AppBar(
-        title: const Text("Settings"),
+        backgroundColor: MyColors.backgroundColor,
+        title: const Text("Add Task"),
         centerTitle: true,
         leading: IconButton(
           icon: SvgPicture.asset(Myicons.arrow2),
@@ -24,6 +27,7 @@ class AddTaskPage extends StatelessWidget {
       ),
       body: Column(
         children: [
+          SizedBox(height: 30),
           Container(
             width: double.infinity,
             height: 63,

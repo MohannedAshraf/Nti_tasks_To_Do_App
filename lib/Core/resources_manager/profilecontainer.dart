@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:to_do_app/mycolors.dart';
-import 'package:to_do_app/myicons.dart';
+import 'package:to_do_app/Core/resources_manager/app_colors.dart';
+import 'package:to_do_app/Core/resources_manager/app_icons.dart';
 
 class ProfileContainer extends StatelessWidget {
   const ProfileContainer({

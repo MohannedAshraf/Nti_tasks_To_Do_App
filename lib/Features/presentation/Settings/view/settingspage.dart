@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:to_do_app/myicons.dart';
+import 'package:to_do_app/Core/resources_manager/app_colors.dart';
+import 'package:to_do_app/Core/resources_manager/app_icons.dart' show Myicons;
 
 class SettingsPage extends StatefulWidget {
+  const SettingsPage({super.key});
+
   @override
   // ignore: library_private_types_in_public_api
   _SettingsPageState createState() => _SettingsPageState();
@@ -58,17 +61,17 @@ class _SettingsPageState extends State<SettingsPage> {
                   "Enable Cloud",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
-                Checkbox(
-                  value: isCloudEnabled,
-                  activeColor: Colors.green,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
+                Transform.scale(
+                  scale: 2, // تغيير الحجم هنا
+                  child: Checkbox(
+                    activeColor: MyColors.green,
+                    value: isCloudEnabled,
+                    onChanged: (value) {
+                      setState(() {
+                        isCloudEnabled = value!;
+                      });
+                    },
                   ),
-                  onChanged: (value) {
-                    setState(() {
-                      isCloudEnabled = value!;
-                    });
-                  },
                 ),
               ],
             ),

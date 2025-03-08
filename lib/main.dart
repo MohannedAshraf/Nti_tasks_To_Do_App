@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/mycolors.dart';
-import 'package:to_do_app/startpage.dart';
+import 'package:to_do_app/Core/resources_manager/app_colors.dart';
+
+import 'package:to_do_app/Features/presentation/Home/view/home_screen_test.dart';
+import 'package:to_do_app/Features/presentation/Start/view/startpage.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:to_do_app/addtaskpage.dart';
-import 'package:to_do_app/customappbar.dart';
-import 'package:to_do_app/myicons.dart';
-import 'package:to_do_app/myimages.dart';
+import 'package:to_do_app/Core/resources_manager/app_icons.dart';
+import 'package:to_do_app/Core/resources_manager/app_images.dart';
+import 'package:to_do_app/Core/resources_manager/customappbar.dart';
+import 'package:to_do_app/Features/presentation/Add%20task/view/addtaskpage.dart';
 
 class HomeBeforTasks extends StatelessWidget {
   const HomeBeforTasks({super.key});

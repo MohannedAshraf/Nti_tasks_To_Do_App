@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:to_do_app/addtaskpage.dart';
-import 'package:to_do_app/customappbar.dart';
-import 'package:to_do_app/mycolors.dart';
-import 'package:to_do_app/myicons.dart';
-
-import 'package:to_do_app/myinprogresscontainer.dart';
-import 'package:to_do_app/mytaskgroupcontainer.dart';
+import 'package:to_do_app/Core/resources_manager/app_colors.dart';
+import 'package:to_do_app/Core/resources_manager/app_icons.dart';
+import 'package:to_do_app/Core/resources_manager/customappbar.dart';
+import 'package:to_do_app/Core/resources_manager/myinprogresscontainer.dart';
+import 'package:to_do_app/Core/resources_manager/mytaskgroupcontainer.dart';
+import 'package:to_do_app/Features/presentation/Add%20task/view/addtaskpage.dart';
 
 class MyHome extends StatelessWidget {
   const MyHome({super.key});
@@ -143,7 +142,7 @@ class MyHome extends StatelessWidget {
                     describtion: "Add New Features",
                     icon: Myicons.workbag,
                     textcolor: MyColors.white,
-                    labelcolor: MyColors.black,
+                    labelcolor: MyColors.white,
                   ),
                   MyInProgressContainer(
                     color: MyColors.mintgreen,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/myimages.dart';
-import 'package:to_do_app/myprofilepage.dart';
+import 'package:to_do_app/Core/resources_manager/app_images.dart';
+import 'package:to_do_app/Features/presentation/Profile/view/myprofilepage.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key, this.actions});
@@ -27,6 +27,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       title: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             "Hello!",
