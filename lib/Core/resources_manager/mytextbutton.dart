@@ -14,7 +14,7 @@ class MyTextButton extends StatelessWidget {
   final double offsety;
   final Color shadowcolor;
   final String buttontext;
-  final Widget newscreen;
+  final Widget? newscreen;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,7 +38,7 @@ class MyTextButton extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => newscreen),
+            MaterialPageRoute(builder: (context) => newscreen!),
           );
         },
         child: Text(

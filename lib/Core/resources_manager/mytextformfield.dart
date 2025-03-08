@@ -8,11 +8,13 @@ class MyTextFormField extends StatelessWidget {
     required this.hinttext,
     required this.labeltext,
     this.height = 63,
+    this.controller,
   });
   final int maxlines;
   final String hinttext;
   final String labeltext;
   final double? height;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class MyTextFormField extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
       ),
       child: TextFormField(
+        controller: controller,
         maxLines: maxlines,
         decoration: InputDecoration(
           border: InputBorder.none,
