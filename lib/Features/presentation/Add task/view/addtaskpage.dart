@@ -4,11 +4,18 @@ import 'package:to_do_app/Core/resources_manager/app_colors.dart';
 import 'package:to_do_app/Core/resources_manager/app_icons.dart';
 import 'package:to_do_app/Core/resources_manager/mytextbutton.dart';
 import 'package:to_do_app/Core/resources_manager/mytextformfield.dart';
-
 import 'package:to_do_app/Features/presentation/Home/view/homepage.dart';
 
-class AddTaskPage extends StatelessWidget {
+class AddTaskPage extends StatefulWidget {
   const AddTaskPage({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _AddTaskPageState createState() => _AddTaskPageState();
+}
+
+class _AddTaskPageState extends State<AddTaskPage> {
+  String? selectedValue; // ✅ متغير لحفظ القيمة المختارة
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +35,7 @@ class AddTaskPage extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(height: 30),
+
           Container(
             width: double.infinity,
             height: 63,
@@ -41,6 +49,7 @@ class AddTaskPage extends StatelessWidget {
             child: DropdownButtonHideUnderline(
               child: DropdownButton<String>(
                 isExpanded: true,
+                value: selectedValue,
                 hint: Text("Select Task Group"),
                 dropdownColor: MyColors.white,
                 borderRadius: BorderRadius.circular(15),
@@ -65,11 +74,14 @@ class AddTaskPage extends StatelessWidget {
                       );
                     }).toList(),
                 onChanged: (newValue) {
-                  print("Selected: $newValue");
+                  setState(() {
+                    selectedValue = newValue; // ✅ يظهر داخل الزر فقط
+                  });
                 },
               ),
             ),
           ),
+
           MyTextFormField(
             maxlines: 1,
             hinttext: "Enter task name",

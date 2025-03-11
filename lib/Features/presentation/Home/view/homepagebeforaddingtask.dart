@@ -4,14 +4,17 @@ import 'package:to_do_app/Core/resources_manager/app_icons.dart';
 import 'package:to_do_app/Core/resources_manager/app_images.dart';
 import 'package:to_do_app/Core/resources_manager/customappbar.dart';
 import 'package:to_do_app/Features/presentation/Add%20task/view/addtaskpage.dart';
+import 'package:to_do_app/Features/presentation/Profile/repo/profile_cubit.dart';
 
 class HomeBeforTasks extends StatelessWidget {
-  const HomeBeforTasks({super.key});
+  const HomeBeforTasks({super.key, required this.cubit});
 
+  final ProfileCubit cubit;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
+        cubit: cubit,
         actions: [
           IconButton(
             onPressed: () {

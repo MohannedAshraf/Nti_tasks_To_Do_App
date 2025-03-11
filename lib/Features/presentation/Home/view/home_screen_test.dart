@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:to_do_app/Features/presentation/Home/repo/home_cubit.dart';
 import 'package:to_do_app/Features/presentation/Home/repo/home_state.dart';
+import 'package:to_do_app/Features/presentation/Profile/repo/profile_cubit.dart';
 
 class HomeScreenTest extends StatelessWidget {
   const HomeScreenTest({super.key});
@@ -15,24 +16,28 @@ class HomeScreenTest extends StatelessWidget {
         appBar: AppBar(title: Text("Text Cubit")),
         body: Column(
           children: [
-            BlocConsumer<HomeCubit, HomeState>(
-              listener: (context, state) {
-                print(state.toString());
-              },
-              builder: (context, state) {
-                return Column(
-                  children: [
-                    Switch(
-                      value: HomeCubit.get(context).mySwitch,
-                      onChanged: HomeCubit.get(context).ChangeSwitch,
-                    ),
-                    Checkbox(
-                      value: HomeCubit.get(context).myCheckBox,
-                      onChanged: HomeCubit.get(context).ChangeCheckBox,
-                    ),
-                  ],
-                );
-              },
+            BlocProvider(
+              create: (context) => ProfileCubit(),
+              child: BlocConsumer<HomeCubit, HomeState>(
+                listener: (context, state) {
+                  // ignore: avoid_print
+                  print(state.toString());
+                },
+                builder: (context, state) {
+                  return Column(
+                    children: [
+                      Switch(
+                        value: HomeCubit.get(context).mySwitch,
+                        onChanged: HomeCubit.get(context).ChangeSwitch,
+                      ),
+                      Checkbox(
+                        value: HomeCubit.get(context).myCheckBox,
+                        onChanged: HomeCubit.get(context).ChangeCheckBox,
+                      ),
+                    ],
+                  );
+                },
+              ),
             ),
           ],
         ),

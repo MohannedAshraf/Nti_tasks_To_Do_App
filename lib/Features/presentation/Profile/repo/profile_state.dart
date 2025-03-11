@@ -1,4 +1,4 @@
-class ProfileState {}
+abstract class ProfileState {}
 
 class ProfileInitState extends ProfileState {}
 

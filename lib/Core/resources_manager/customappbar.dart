@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:to_do_app/Core/resources_manager/app_images.dart';
 import 'package:to_do_app/Features/presentation/Profile/repo/profile_cubit.dart';
-import 'package:to_do_app/Features/presentation/Profile/repo/profile_state.dart';
+
 import 'package:to_do_app/Features/presentation/Profile/view/myprofilepage.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key, this.actions});
+  const CustomAppBar({super.key, this.actions, this.cubit});
   final List<Widget>? actions;
+  final ProfileCubit? cubit;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -36,15 +37,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             "Hello!",
             style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
           ),
-          BlocConsumer<ProfileCubit, ProfileState>(
-            listener: (context, state) {},
-            builder: (context, state) {
-              return Text(
-                ProfileCubit.get(context).profileRepo.userModel!.name,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              );
-            },
-          ),
+          // BlocConsumer<ProfileCubit, ProfileState>(
+          //   bloc: cubit,
+          //   listener: (context, state) {},
+          //   builder: (context, state) {
+          //     return Text(
+          //       ProfileCubit.get(context).profileRepo.userModel!.name,
+          //       style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          //     );
+          //   },
+          // ),
         ],
       ),
       actions: actions,

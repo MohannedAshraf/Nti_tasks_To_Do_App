@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:to_do_app/Core/resources_manager/app_colors.dart';
 import 'package:to_do_app/Core/resources_manager/app_icons.dart';
-import 'package:to_do_app/Core/resources_manager/customappbar.dart';
+
 import 'package:to_do_app/Core/resources_manager/myinprogresscontainer.dart';
 import 'package:to_do_app/Core/resources_manager/mytaskgroupcontainer.dart';
-import 'package:to_do_app/Features/presentation/Add%20task/view/addtaskpage.dart';
 
 class MyHome extends StatelessWidget {
   const MyHome({super.key});
@@ -13,21 +12,22 @@ class MyHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AddTaskPage(),
-                ), // الصفحة الجديدة
-              );
-            },
-            icon: SvgPicture.asset(Myicons.addtask),
-          ),
-        ],
-      ),
+      // appBar: CustomAppBar(
+      //   cubit: ProfileCubit.get(context),
+      //   actions: [
+      //     IconButton(
+      //       onPressed: () {
+      //         Navigator.push(
+      //           context,
+      //           MaterialPageRoute(
+      //             builder: (context) => AddTaskPage(),
+      //           ), // الصفحة الجديدة
+      //         );
+      //       },
+      //       icon: SvgPicture.asset(Myicons.addtask),
+      //     ),
+      //   ],
+      // ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -107,15 +107,16 @@ class MyHome extends StatelessWidget {
           Row(
             children: [
               Text(
-                "  In Progress    ",
+                "    In Progress    ",
                 style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
               ),
               Container(
                 width: 20,
                 height: 20,
                 decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
                   color: MyColors.mintgreen,
-                  shape: BoxShape.circle,
+                  shape: BoxShape.rectangle,
                 ),
                 child: Center(
                   child: Text(
@@ -154,7 +155,7 @@ class MyHome extends StatelessWidget {
                     labelcolor: MyColors.gray,
                   ),
                   MyInProgressContainer(
-                    color: MyColors.homecolor,
+                    color: MyColors.pink,
                     label: "Home Task",
                     describtion:
                         "Add new feature for Do It \napp and commit it",
@@ -167,7 +168,7 @@ class MyHome extends StatelessWidget {
             ),
           ),
           Text(
-            "  Task Groups",
+            "    Task Groups",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
           ),
           MyTaskGroupContainer(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/Core/resources_manager/app_icons.dart';
-import 'package:to_do_app/Core/resources_manager/customappbar.dart';
+
 import 'package:to_do_app/Core/resources_manager/profilecontainer.dart';
 import 'package:to_do_app/Features/presentation/Profile/view/updateprofilepage.dart';
 import 'package:to_do_app/Features/presentation/Settings/view/settingspage.dart';
@@ -11,8 +11,7 @@ class MyProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
-
+      // appBar: CustomAppBar(),
       body: Column(
         children: [
           ProfileContainer(
