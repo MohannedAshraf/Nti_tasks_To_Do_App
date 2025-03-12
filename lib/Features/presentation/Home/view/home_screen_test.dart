@@ -17,6 +17,7 @@ class HomeScreenTest extends StatelessWidget {
           children: [
             BlocConsumer<HomeCubit, HomeState>(
               listener: (context, state) {
+                // ignore: avoid_print
                 print(state.toString());
               },
               builder: (context, state) {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/Core/resources_manager/app_colors.dart';
 import 'package:to_do_app/Core/resources_manager/app_images.dart';
+import 'package:to_do_app/Core/resources_manager/app_setings.dart';
 import 'package:to_do_app/Core/resources_manager/mytextbutton.dart';
-
-import 'package:to_do_app/Features/presentation/Profile/view/updateprofilepage.dart';
+import 'package:to_do_app/Features/presentation/Profile/view/registerpage.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({super.key});
@@ -76,8 +76,8 @@ class StartPage extends StatelessWidget {
           MyTextButton(
             offsety: 5,
             shadowcolor: MyColors.green,
-            buttontext: "Let's Start",
-            newscreen: UpdateProfilePage(),
+            buttontext: MyAppStrings.startb,
+            newscreen: RegisterPage(),
           ),
         ],
       ),

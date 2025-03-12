@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:to_do_app/Core/resources_manager/app_colors.dart';
 import 'package:to_do_app/Core/resources_manager/app_icons.dart';
+import 'package:to_do_app/Core/resources_manager/app_images.dart';
+import 'package:to_do_app/Core/resources_manager/app_setings.dart';
 import 'package:to_do_app/Core/resources_manager/mytextbutton.dart';
 import 'package:to_do_app/Core/resources_manager/mytextformfield.dart';
-
-import 'package:to_do_app/Features/presentation/Home/view/homepage.dart';
+import 'package:to_do_app/Features/presentation/Home/view/new_home_page.dart';
 
 class AddTaskPage extends StatelessWidget {
   const AddTaskPage({super.key});
@@ -13,88 +14,45 @@ class AddTaskPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyColors.backgroundColor,
       appBar: AppBar(
-        backgroundColor: MyColors.backgroundColor,
-        title: const Text("Add Task"),
+        leading: Icon(Icons.arrow_back),
+        title: Text(MyAppStrings.addtasktitle),
         centerTitle: true,
-        leading: IconButton(
-          icon: SvgPicture.asset(Myicons.arrow2),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(height: 30),
+          SizedBox(height: 20),
           Container(
-            width: double.infinity,
-            height: 63,
+            width: 261,
+            height: 207,
+            margin: EdgeInsets.only(bottom: 29),
             decoration: BoxDecoration(
-              color: MyColors.white,
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.grey),
-            ),
-            padding: EdgeInsets.all(10),
-            margin: EdgeInsets.only(bottom: 17, left: 20, right: 20),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButton<String>(
-                isExpanded: true,
-                hint: Text("Select Task Group"),
-                dropdownColor: MyColors.white,
-                borderRadius: BorderRadius.circular(15),
-                items:
-                    choices.keys.map((String key) {
-                      return DropdownMenuItem<String>(
-                        value: key,
-                        child: Row(
-                          children: [
-                            SvgPicture.asset(
-                              choices[key]!["icon"],
-                              width: 24,
-                              height: 24,
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              choices[key]!["label"],
-                              style: TextStyle(fontSize: 16),
-                            ),
-                          ],
-                        ),
-                      );
-                    }).toList(),
-                onChanged: (newValue) {
-                  print("Selected: $newValue");
-                },
+              borderRadius: BorderRadius.circular(20),
+              image: DecorationImage(
+                image: AssetImage(MyImages.palastine),
+                fit: BoxFit.cover,
               ),
             ),
           ),
           MyTextFormField(
             maxlines: 1,
-            hinttext: "Enter task name",
-            labeltext: "Task Name",
+            hinttext: MyAppStrings.titlehint,
+            labeltext: MyAppStrings.title,
           ),
           MyTextFormField(
-            maxlines: 6,
-            hinttext: "Enter task description ... ",
-            labeltext: "Description",
-            height: 142,
+            maxlines: 1,
+            hinttext: MyAppStrings.descriptionhint,
+            labeltext: MyAppStrings.description,
           ),
           MyTextButton(
-            offsety: 5,
-            shadowcolor: MyColors.green,
-            buttontext: 'Save',
-            newscreen: MyHome(),
+            offsety: 4,
+            shadowcolor: MyColors.gray,
+            buttontext: MyAppStrings.addtasktitle,
+            newscreen: NewHomepage(),
           ),
         ],
       ),
     );
   }
 }
-
-final Map<String, Map<String, dynamic>> choices = {
-  "Home": {"label": "Home", "icon": Myicons.home},
-  "Work": {"label": "Work", "icon": Myicons.workbag},
-  "Personal": {"label": "Personal", "icon": Myicons.person},
-};

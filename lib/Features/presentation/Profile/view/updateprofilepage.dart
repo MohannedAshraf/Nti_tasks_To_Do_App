@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_app/Core/resources_manager/app_colors.dart';
 import 'package:to_do_app/Core/resources_manager/app_images.dart';
+import 'package:to_do_app/Core/resources_manager/app_setings.dart';
 
 import 'package:to_do_app/Core/resources_manager/mytextformfield.dart';
 import 'package:to_do_app/Features/presentation/Home/view/homepagebeforaddingtask.dart';
@@ -10,7 +11,7 @@ import 'package:to_do_app/Features/presentation/Profile/repo/profile_cubit.dart'
 import 'package:to_do_app/Features/presentation/Profile/repo/profile_state.dart';
 
 class UpdateProfilePage extends StatefulWidget {
-  UpdateProfilePage({super.key});
+  const UpdateProfilePage({super.key});
 
   @override
   State<UpdateProfilePage> createState() => _UpdateProfilePageState();
@@ -29,7 +30,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 446,
+                  height: 298,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(20),
@@ -44,8 +45,8 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                 MyTextFormField(
                   controller: name,
                   maxlines: 1,
-                  hinttext: "type your name here",
-                  labeltext: "Your Name",
+                  hinttext: MyAppStrings.namehint,
+                  labeltext: MyAppStrings.name,
                 ),
                 SizedBox(height: 63),
                 BlocConsumer<ProfileCubit, ProfileState>(
@@ -89,7 +90,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                             ).update(UserModel(name: name.text));
                           },
                           child: Text(
-                            "Save",
+                            MyAppStrings.save,
                             style: TextStyle(
                               color: MyColors.white,
                               fontSize: 19,

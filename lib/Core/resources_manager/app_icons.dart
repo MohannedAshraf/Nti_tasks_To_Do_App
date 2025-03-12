@@ -11,4 +11,6 @@ abstract class Myicons {
   static const String icon1 = "${baseiconpass}icon1.svg";
   static const String arrow = "assets/icons/arrow.svg";
   static const String arrow2 = "assets/icons/arrow2.svg";
+  static const String splash = "${baseiconpass}Splash.svg";
+  static const String lock = "${baseiconpass}Lock.svg";
 }

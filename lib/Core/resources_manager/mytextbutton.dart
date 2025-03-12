@@ -20,7 +20,7 @@ class MyTextButton extends StatelessWidget {
     return Container(
       width: 331,
       height: height,
-      margin: EdgeInsets.only(left: 22, right: 20, top: 30),
+      margin: EdgeInsets.only(left: 22, right: 22, top: 30),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(

@@ -9,12 +9,14 @@ class MyTextFormField extends StatelessWidget {
     required this.labeltext,
     this.height = 63,
     this.controller,
+    this.top = 0,
   });
   final int maxlines;
   final String hinttext;
   final String labeltext;
   final double? height;
   final TextEditingController? controller;
+  final double? top;
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +24,9 @@ class MyTextFormField extends StatelessWidget {
       padding: EdgeInsets.only(left: 16),
       width: 331,
       height: height,
-      margin: EdgeInsets.all(23),
+      margin: EdgeInsets.only(left: 22, top: top!, bottom: 10),
       decoration: BoxDecoration(
+        border: Border.all(width: 1),
         color: MyColors.white,
         borderRadius: BorderRadius.circular(15),
       ),

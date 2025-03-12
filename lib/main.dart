@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_app/Core/resources_manager/app_colors.dart';
 import 'package:to_do_app/Features/presentation/Profile/repo/profile_cubit.dart';
-
-import 'package:to_do_app/Features/presentation/Start/view/startpage.dart';
+import 'package:to_do_app/Features/presentation/Start/view/logopage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,7 +38,7 @@ class MyApp extends StatelessWidget {
           // tested with just a hot reload.
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
-        home: const StartPage(),
+        home: const SplashPage(),
       ),
     );
   }
