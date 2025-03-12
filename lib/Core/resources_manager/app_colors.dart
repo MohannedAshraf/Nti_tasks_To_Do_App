@@ -13,4 +13,5 @@ abstract class MyColors {
   static const Color mintgreen = Color.fromARGB(255, 193, 233, 213);
   static const Color homecolor = Color.fromARGB(255, 233, 189, 212);
   static const Color containercolor = Color(0xffCEEBDC);
+  static const Color newgray = Color(0xffD9D9D9);
 }

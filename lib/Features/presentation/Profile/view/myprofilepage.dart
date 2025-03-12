@@ -29,7 +29,7 @@ class MyProfilePage extends StatelessWidget {
           ProfileContainer(
             icon1p: Myicons.setting,
             textp: "    Settings",
-            nextscreen: SettingsPage(),
+            nextscreen: Settingspage(),
           ),
         ],
       ),

@@ -37,7 +37,9 @@ abstract class MyAppStrings {
   static const String save = "Save";
   //Settings page
   static const String settingtitle = "Settings";
-  static const String settinglang = "Language";
+  static const String settinglang = "  Language";
+  static const String ar = "AR";
+  static const String en = "EN";
   //add task
   static const String addtasktitle = "Add Task";
   static const String title = "Title";

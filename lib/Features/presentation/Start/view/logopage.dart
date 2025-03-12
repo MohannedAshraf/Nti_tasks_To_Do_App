@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:to_do_app/Core/resources_manager/app_colors.dart';
+
 import 'package:to_do_app/Core/resources_manager/app_icons.dart';
-import 'package:to_do_app/Core/resources_manager/app_setings.dart';
-import 'package:to_do_app/Core/resources_manager/mytextbutton.dart';
+
 import 'package:to_do_app/Features/presentation/Start/view/startpage.dart';
 
 class SplashPage extends StatelessWidget {
@@ -17,17 +16,20 @@ class SplashPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              Container(
-                width: 334,
-                height: 433,
-                margin: EdgeInsets.only(left: 20),
-                child: SvgPicture.asset(Myicons.splash),
-              ),
-              MyTextButton(
-                offsety: 4,
-                shadowcolor: MyColors.green,
-                buttontext: MyAppStrings.spalshb,
-                newscreen: StartPage(),
+              SizedBox(height: 60),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => StartPage()),
+                  );
+                },
+                child: Container(
+                  width: 334,
+                  height: 433,
+                  margin: EdgeInsets.only(left: 20),
+                  child: SvgPicture.asset(Myicons.splash),
+                ),
               ),
             ],
           ),

@@ -2,83 +2,63 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:to_do_app/Core/resources_manager/app_colors.dart';
 import 'package:to_do_app/Core/resources_manager/app_icons.dart' show Myicons;
+import 'package:to_do_app/Core/resources_manager/app_setings.dart';
 
-class SettingsPage extends StatefulWidget {
-  const SettingsPage({super.key});
-
-  @override
-  // ignore: library_private_types_in_public_api
-  _SettingsPageState createState() => _SettingsPageState();
-}
-
-class _SettingsPageState extends State<SettingsPage> {
-  bool isNotificationEnabled = false;
-  bool isCloudEnabled = false;
+class Settingspage extends StatelessWidget {
+  const Settingspage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Settings"),
+        leading: Icon(Icons.arrow_back),
         centerTitle: true,
-        leading: IconButton(
-          icon: SvgPicture.asset(Myicons.arrow2),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        title: Text(MyAppStrings.settingtitle),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        child: Column(
-          children: [
-            /// 🔹 **Notification Switch**
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  "Notification",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                ),
-                Switch(
-                  value: isNotificationEnabled,
-                  activeColor: Colors.green,
-                  onChanged: (value) {
-                    setState(() {
-                      isNotificationEnabled = value;
-                    });
-                  },
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-
-            /// 🔹 **Enable Cloud Checkbox**
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  "Enable Cloud",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                ),
-                Transform.scale(
-                  scale: 2, // تغيير الحجم هنا
-                  child: Checkbox(
-                    activeColor: MyColors.green,
-                    value: isCloudEnabled,
-                    onChanged: (value) {
-                      setState(() {
-                        isCloudEnabled = value!;
-                      });
-                    },
+      body: Column(
+        children: [
+          SizedBox(height: 20),
+          Row(
+            children: [
+              Text(
+                MyAppStrings.settinglang,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+              ),
+              Spacer(),
+              Container(
+                width: 51,
+                height: 36,
+                decoration: BoxDecoration(
+                  color: MyColors.newgray,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(5),
+                    bottomLeft: Radius.circular(5),
                   ),
                 ),
-              ],
-            ),
-          ],
-        ),
+                child: Center(child: Text(MyAppStrings.ar)),
+              ),
+              Container(
+                width: 51,
+                height: 36,
+                margin: EdgeInsets.only(right: 22),
+                decoration: BoxDecoration(
+                  color: MyColors.green,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(5),
+                    bottomLeft: Radius.circular(5),
+                  ),
+                ),
+                child: Center(
+                  child: Text(
+                    MyAppStrings.en,
+                    style: TextStyle(color: MyColors.white),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
-      backgroundColor: Colors.grey[100],
     );
   }
 }
