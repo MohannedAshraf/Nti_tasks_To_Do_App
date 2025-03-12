@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'package:to_do_app/Core/resources_manager/app_colors.dart';
-
-import 'package:to_do_app/Features/presentation/Start/view/startpage.dart';
+import 'package:projects/core/resoures_manger/utiles/app_color.dart';
+import 'package:projects/feature/presentation/start_screen/views/strart_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,16 +8,21 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      color: MyColors.backgroundColor,
       debugShowCheckedModeBanner: false,
-      title: 'To_Do_App',
+      title: 'ToDo App',
       theme: ThemeData(
+        fontFamily: "Lexend Deca",
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        scaffoldBackgroundColor: AppColor.scaffoldBackground,
+        appBarTheme: AppBarTheme(backgroundColor: AppColor.scaffoldBackground),
+        useMaterial3: true,
       ),
-      home: const StartPage(),
+      home: StrartScreen(),
     );
   }
 }
