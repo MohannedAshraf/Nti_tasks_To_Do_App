@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:to_do_app/Core/resources_manager/app_colors.dart';
-import 'package:to_do_app/Core/resources_manager/app_icons.dart' show Myicons;
+
 import 'package:to_do_app/Core/resources_manager/app_setings.dart';
 
 class Settingspage extends StatelessWidget {
