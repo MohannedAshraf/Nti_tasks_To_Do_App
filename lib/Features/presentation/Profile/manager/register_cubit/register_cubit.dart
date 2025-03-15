@@ -13,17 +13,18 @@ class RegisterCubit extends Cubit<RegisterState> {
   TextEditingController password = TextEditingController();
   void onRegister() async {
     emit(RegisterLoading());
-    var response = await repo.register(
-      username: username.text,
-      password: password.text,
-    );
-    response.fold(
-      (error) {
-        emit(RegisterError(error));
-      },
-      (r) {
-        emit(RegisterSuccess(r!.data.toString()));
-      },
-    );
+
+    // var response = await repo.register(
+    //   username: username.text,
+    //   password: password.text,
+    // );
+    // response.fold(
+    //   (error) {
+    //     emit(RegisterError(error));
+    //   },
+    //   (r) {
+    //     emit(RegisterSuccess(r!.data['message'].toString()));
+    //   },
+    // );
   }
 }

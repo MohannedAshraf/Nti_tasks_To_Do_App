@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_app/Core/resources_manager/app_images.dart';
+import 'package:to_do_app/Features/presentation/Profile/manager/login_cubit/login_cubit.dart';
+import 'package:to_do_app/Features/presentation/Profile/manager/login_cubit/login_state.dart';
 import 'package:to_do_app/Features/presentation/Profile/view/myprofilepage.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -33,15 +36,21 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             "Hello!",
             style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
           ),
-          // BlocConsumer<ProfileCubit, ProfileState>(
-          //   listener: (context, state) {},
-          //   builder: (context, state) {
-          //     return Text(
-          //       ProfileCubit.get(context).profileRepo.userModel!.name ,
-          //       style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          //     );
-          //   },
-          // ),
+          BlocProvider(
+            create: (context) => LoginCubit(),
+            child: BlocConsumer<LoginCubit, LoginState>(
+              listener: (context, state) {},
+              builder: (context, state) {
+                if (state is LoginSuccess) {
+                  return Text(
+                    state.user.username ?? "No Name",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  );
+                }
+                return SizedBox();
+              },
+            ),
+          ),
         ],
       ),
       actions: actions,
